@@ -2,17 +2,28 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import { BrowserRouter, Route,Switch } from 'react-router-dom';
-
-
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Home from './component/Home';
+import About from './component/About';
+import Contact from './component/Contact';
+import Error from './component/Error';
 import Nav from './component/Nav';
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <BrowserRouter>
+      <div className="Ap">
        <Nav />
-      </div>
+        <Switch>
+          <Route path='/' component={Home} exact />
+          <Route path='/about' component={About} />
+          <Route path='/contact' component={Contact} />
+          <Route component={Error} />
+        </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
